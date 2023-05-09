@@ -74,8 +74,8 @@ def response_message():
     data = request.json
     response = {
         "ToUserName": data.get("FromUserName"),
-        "FromUserName": "wxb872ea949853bf14",
-        "CreateTime": int(time.time()),
+        "FromUserName": data.get("ToUserName"),
+        "CreateTime": data.get("CreateTime"),
         "MsgType": "text",
         "Content": data.get("Content")
     }
