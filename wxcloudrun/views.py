@@ -71,13 +71,13 @@ def get_count():
 
 @app.route('/milk/message', methods=['GET', 'POST'])
 def response_message():
-    data = request.json
-    # response = {
-    #     "ToUserName": data.FromUserName,
-    #     "FromUserName": "wxb872ea949853bf14",
-    #     "CreateTime": int(time.time()),
-    #     "MsgType": "text",
-    #     "Content": data.Content
-    # }
+    data = json.loads(request.json)
+    response = {
+        "ToUserName": data.FromUserName,
+        "FromUserName": "wxb872ea949853bf14",
+        "CreateTime": int(time.time()),
+        "MsgType": "text",
+        "Content": data.Content
+    }
 
-    return data
+    return response
