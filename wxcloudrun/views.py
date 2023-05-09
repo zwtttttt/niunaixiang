@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 from flask import render_template, request
 from run import app
+from flask import Response
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
@@ -69,7 +70,7 @@ def get_count():
     return make_succ_response(0) if counter is None else make_succ_response(counter.count)
 
 
-@app.route('/milk/message', methods=['GET', 'POST'])
+@app.route('/milk/message', methods=['POST'])
 def response_message():
     data = request.json
     response_json = {
@@ -80,13 +81,4 @@ def response_message():
         "Content": data.get("Content")
     }
 
-    response_xml = f"""
-        <xml>
-            <ToUserName>{data.get("FromUserName")}</ToUserName>
-            <FromUserName>{data.get("ToUserName")}</FromUserName>
-            <CreateTime>{data.get("CreateTime")}</CreateTime>
-            <MsgType>{"text"}</MsgType>
-            <Content>{data.get("Content")}</Content>
-        </xml>
-    """
-    return response_xml
+    return Response(json.dumps(data), mimetype='application/json')
