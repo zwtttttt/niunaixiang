@@ -70,4 +70,4 @@ def get_count():
 def response_message():
     data = request.json
     print(data)
-    return "success"
+    return data
