@@ -1,3 +1,4 @@
+import json
 import time
 
 from datetime import datetime
@@ -79,7 +80,7 @@ def response_message():
     #     "Content": data.Content
     # }
 
-    return {
-        "data": data,
-        "type": type(data)
-    }
+    return json.dumps({
+        'data': data,
+        'type': type(data)
+    })
