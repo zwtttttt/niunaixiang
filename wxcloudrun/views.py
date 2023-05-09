@@ -80,7 +80,4 @@ def response_message():
     #     "Content": data.Content
     # }
 
-    return json.dumps({
-        'data': data,
-        'type': type(data)
-    })
+    return data
