@@ -79,4 +79,7 @@ def response_message():
     #     "Content": data.Content
     # }
 
-    return data, type(data)
+    return {
+        "data": data,
+        "type": type(data)
+    }
