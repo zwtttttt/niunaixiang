@@ -80,4 +80,4 @@ def response_message():
         "Content": data.get("Content")
     }
 
-    return response
+    return json.dumps(response)
