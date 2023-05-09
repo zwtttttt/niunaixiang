@@ -81,4 +81,4 @@ def response_message():
         "Content": data.get("Content")
     }
 
-    return Response(json.dumps(data), mimetype='application/json')
+    return Response(json.dumps(response_json), mimetype='application/json')
