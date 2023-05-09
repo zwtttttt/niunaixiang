@@ -68,4 +68,6 @@ def get_count():
 
 @app.route('/milk/message', methods=['GET', 'POST'])
 def response_message():
+    data = request.json
+    print(data)
     return "success"
