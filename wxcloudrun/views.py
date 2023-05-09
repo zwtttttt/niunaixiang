@@ -1,3 +1,5 @@
+import time
+
 from datetime import datetime
 from flask import render_template, request
 from run import app
@@ -69,5 +71,13 @@ def get_count():
 @app.route('/milk/message', methods=['GET', 'POST'])
 def response_message():
     data = request.json
-    print(data)
-    return data
+    time
+    response = {
+        "ToUserName": data.FromUserName,
+        "FromUserName": "wxb872ea949853bf14",
+        "CreateTime": int(time.time()),
+        "MsgType": "text",
+        "Content": data.Content
+    }
+
+    return response
