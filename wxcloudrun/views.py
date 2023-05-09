@@ -71,7 +71,7 @@ def get_count():
 
 @app.route('/milk/message', methods=['GET', 'POST'])
 def response_message():
-    data = json.loads(request.json)
+    data = request.json
     response = {
         "ToUserName": data.FromUserName,
         "FromUserName": "wxb872ea949853bf14",
